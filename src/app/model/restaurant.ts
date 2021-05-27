@@ -1,12 +1,13 @@
 import { Category } from "./category";
 
 export class Restaurant {
+  
   constructor(
 
-    private name: string,
-    private image: string,
-    private adresse: string,
-    private cat_id:number,
-    private id?: number,
+    public name: string,
+    public image: string,
+    public adresse: string,
+    public cat_id:number,
+    public id?: number,
   ){}
 }

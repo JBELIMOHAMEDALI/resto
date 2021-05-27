@@ -11,5 +11,10 @@
 
 <ion-content>
   <img src={{input_data.image}}/>
- <h1>{{input_data._name}}</h1>
+  <br>
+  <br>
+ <h1>{{input_data.name}}</h1>
+<ion-button (click)="this.delete_fn(input_data.id)">Delete</ion-button>
+
 </ion-content>
+

@@ -6,9 +6,11 @@ export class Category {
   private id?: number
 
   constructor(
-
      name: string,
     image: string,
     id?: number
-  ){  }
+  ){ 
+    this.name=name;
+    this.image=image;
+   }
 }

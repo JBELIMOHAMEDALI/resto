@@ -36,4 +36,20 @@ export class RestaurantService {
         });
     });
   }
+
+  deleteRestaurants(id : number){
+    return new Promise((resolve, reject) => {
+      this.httpC.delete(`http://localhost:3010/delete-restaurant/${id}`)
+        .forEach(data =>
+          {
+            resolve(data)
+          }
+        ).catch((err) => {
+          reject(err);
+        });
+    });
+  }
+
+
+
 }

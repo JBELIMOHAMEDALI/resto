@@ -24,6 +24,7 @@ export class CategoryDetailPage implements OnInit {
     private restaurantService : RestaurantService
     ){    }
   ngOnInit() {
+    
     this.activatedRoute.params.subscribe(idF=>{
       this.indice=parseInt(idF.id);
 
@@ -44,8 +45,11 @@ export class CategoryDetailPage implements OnInit {
   ionViewWillEnter(){
     this.getAllRestaurantOfCategory((rows)=>{
       this.list_restaurants = rows
+      console.log(rows);
+      
     })
   }
+  
 
   async getOneCategory(callback){
 
@@ -64,12 +68,18 @@ export class CategoryDetailPage implements OnInit {
   async getAllRestaurantOfCategory(callback){
     try{
       const {err,rows} = await this.restaurantService.getAllRestaurants(this.indice) as any ||[];
+      console.log(rows.length)
       if(!err){
-        console.log(rows)
-        callback(rows)
+
+        if(rows.length>0){
+          return callback(rows);
+        }else{
+  
+          return callback([])
+        }
       }
     }catch(error){
-      return error
+      return []
     }
   }
 
